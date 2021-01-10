@@ -37,6 +37,10 @@ const router = new VueRouter({
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
+window.axiosAdmin = axios.create({
+    baseURL: 'http://localhost:8000/'
+});
+
 const app = new Vue({
     el: '#app',
     router

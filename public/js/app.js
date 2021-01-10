@@ -1922,11 +1922,22 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {};
+  },
+  methods: {
+    getUserData: function getUserData() {
+      axiosAdmin.get("api/user").then(function (r) {
+        console.log(r);
+      });
+    }
+  },
   mounted: function mounted() {
-    console.log('Component mounted.');
+    console.log("Component mounted.");
+  },
+  created: function created() {
+    this.getUserData();
   }
 });
 
@@ -37538,9 +37549,7 @@ var staticRenderFns = [
             ]),
             _vm._v(" "),
             _c("div", { staticClass: "card-body" }, [
-              _vm._v(
-                "\n                    I'm an example component.\n                "
-              )
+              _vm._v("I'm an example component.")
             ])
           ])
         ])
@@ -52841,6 +52850,9 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_0__["default"]({
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
+window.axiosAdmin = axios.create({
+  baseURL: 'http://localhost:8000/'
+});
 var app = new Vue({
   el: '#app',
   router: router
